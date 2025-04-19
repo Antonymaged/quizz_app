@@ -11,7 +11,7 @@
 
 </div>
 
-A modern, interactive Internet Technology quiz application with a beautiful neomorphic UI design. Features multiple question types, theme switching, detailed review section, and a sleek animation system. Built with pure frontend technologies for outstanding performance.
+A modern, interactive quiz application with a beautiful neomorphic UI design. Features multiple question types, theme switching, detailed review section, and a sleek animation system. Built with pure frontend technologies for outstanding performance.
 
 
 
