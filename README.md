@@ -227,5 +227,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 <div align="center">
 Made by ❤️ 
 <br><br>
-<a href="https://github.com/yourusername"><img src="https://img.shields.io/github/followers/yourusername?label=Follow&style=social" alt="GitHub"></a>
+<a href="https://github.com/HosamDyab"><img src="https://img.shields.io/github/followers/yourusername?label=Follow&style=social" alt="GitHub"></a>
 </div>
