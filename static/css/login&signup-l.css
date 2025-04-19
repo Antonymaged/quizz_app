@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #f6f5f7;
+    background: #001528;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +14,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    color: #001528;
 }
 
 .app {
@@ -27,22 +28,23 @@ body {
 h1 {
     font-weight: bold;
     margin: 0;
-    color: white;
+    color: #CFE7FF;
 }
 
 h2 {
     text-align: center;
+    color: #001528;
 }
 
 a {
-    color: #333;
+    color: #001528;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
 }
 
 .container {
-    background-color: #fff;
+    background: linear-gradient(#002141 , #001528);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
@@ -61,7 +63,7 @@ a {
 }
 
 .form-container form {
-    background-color: #ffffff;
+    background-color: #CFE7FF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,9 +75,9 @@ a {
 
 .form-container button {
     border-radius: 20px;
-    border: 1px solid #6A8AA6;
-    background-color: #022840;
-    color: #ffffff;
+    border: 1px solid #001528;
+    background-color: #001528;
+    color: #CFE7FF;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;
@@ -87,7 +89,7 @@ a {
 
 .form-container button:disabled {
     cursor: default;
-    background-color: #6A8AA6;
+    background-color: #001528;
 }
 
 .form-container button:active {
@@ -100,12 +102,12 @@ a {
 
 .form-container button.ghost {
     background-color: transparent;
-    border-color: #ffffff;
+    border-color: #D2D9D3;
 }
 
 .form-container input {
-    background-color: #f0f4f8;
-    border: 1px solid #B4C4D9;
+    background-color: #CFE7FF;
+    border:solid 1px #001528;
     border-radius: 50px;
     padding: 12px 15px;
     margin: 8px 0;
@@ -114,21 +116,20 @@ a {
 }
 
 .form-container input:hover {
-    background-color: #022840;
+    background-color: #001528;
     width: 80%;
-    color: white;
+    color: #CFE7FF;
     transition: 0.5s;
-    border-color: #6A8AA6;
 }
 
 .form-container input:hover::placeholder {
     transition: 0.5s;
-    color: white;
+    color: #CFE7FF;
 }
 
 .profilepic {
-    background-color: #f0f4f8;
-    border: 1px solid #B4C4D9;
+    background: radial-gradient(#002141 , #001528);
+    border: dashed 2px #001528;
     padding: 12px 15px;
     margin: 8px 0;
     width: 65%;
@@ -138,7 +139,7 @@ a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: #CFE7FF;
     gap: 10px;
 }
 
@@ -211,11 +212,11 @@ a {
 }
 
 .overlay {
-    background: linear-gradient(to right, #022840, #6A8AA6);
+    background: linear-gradient(45deg, #001528, #002141);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
-    color: #ffffff;
+    color: #CFE7FF;
     position: relative;
     left: -100%;
     height: 100%;
@@ -273,7 +274,7 @@ a {
 }
 
 .social-container a {
-    border: 1px solid #B4C4D9;
+    border: 1px solid #001528;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -282,30 +283,22 @@ a {
     height: 40px;
     width: 40px;
     cursor: pointer;
-    color: #022840;
-    transition: all 0.3s;
-}
-
-.social-container a:hover {
-    background-color: #B4C4D9;
-    color: white;
 }
 
 #signUpOverlay, #signInOverlay {
     border-radius: 10px;
     width: 30%;
     height: 4%;
-    background-color: white;
-    border: 1px solid #B4C4D9;
-    color: #022840;
+    background-color: #CFE7FF;
+    border: none;
     transition: 0.5s;
 }
 #signUpOverlay:hover, #signInOverlay:hover {
     border-radius: 10px;
     width: 30%;
     height: 4%;
-    background-color: #022840;
-    color: white;
-    border: 1px solid #B4C4D9;
+    background-color: #001528;
+    color: #CFE7FF;
+    border: 1px solid #CFE7FF;
     transition: 0.5s;
 }
