@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #001528;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    min-height: 100vh;
+    margin: 0;
+    color: #001528;
+    overflow-x: hidden;
+}
+
+.profile-container {
+    background-color: #CFE7FF;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: black;
+    padding: 30px;
+    color: #001528;
+    margin-bottom: 40px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 40px;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.current-avatar {   /* Profile pic */
+    width: 130px;       /* 7agm el frame */
+    height: 130px;      /* 7agm el frame */
+    border-radius: 50%;
+    border-style: ridge;
+    border-color: black;
+    border-width: 10px;
+    object-fit: cover;
+    background-color: #002141;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #CFE7FF;
+    font-size: 60px;        /* 7agm el soura */
+}
+
+.avatar-selector {  /* El Camera */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #001528;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #CFE7FF;
+    cursor: pointer;
+    border: 2px solid #CFE7FF;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.user-email {
+    font-size: 16px;
+    color: #002141;
+    margin-bottom: 10px;
+}
+
+.user-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stat {
+    text-align: center;
+    background: #002141;
+    padding: 8px 15px;
+    border-radius: 10px;
+    color: #CFE7FF;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 12px;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section {
+    background: rgba(0, 33, 65, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.section:first-of-type {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.section:first-of-type::-webkit-scrollbar {
+    width: 8px;
+}
+
+.section:first-of-type::-webkit-scrollbar-track {
+    background: rgba(0, 33, 65, 0.05);
+    border-radius: 10px;
+}
+
+.section:first-of-type::-webkit-scrollbar-thumb {
+    background: #001528;
+    border-radius: 10px;
+}
+
+.section h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #001528;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.recent-quiz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 21, 40, 0.2);
+}
+
+.recent-quiz:last-child {
+    border-bottom: none;
+}
+
+.quiz-title {
+    font-weight: bold;
+}
+
+.quiz-score {
+    background: #001528;
+    color: #CFE7FF;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.badge {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #001528;
+    color: #CFE7FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.badge-tooltip {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.edit-profile-btn {
+    border-radius: 20px;
+    border: 1px solid #001528;
+    background-color: #001528;
+    color: #CFE7FF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.edit-profile-btn:hover {
+    background-color: #002141;
+}
+
+.avatar-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-modal-content {
+    background: #CFE7FF;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.avatar-option {    /* El avatars gowa el camera icon */
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color: #002141;
+    color: #CFE7FF;
+    transition: all 0.3s ease;
+}
+
+.avatar-option.selected {
+    border-color: white;
+    box-shadow: 0 0 10px rgba(0, 21, 40, 0.5);
+    transition: 0.2s;
+    transform: scale(1.15);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-btn {
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-btn {
+    background: #001528;
+    color: #CFE7FF;
+    border: none;
+}
+
+.cancel-btn {
+    background: transparent;
+    color: #001528;
+    border: 1px solid #001528;
+} 
