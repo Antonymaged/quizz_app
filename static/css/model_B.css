@@ -257,7 +257,7 @@ p {
 }
 
 .correction-item.correct {
-    border-left: 4px solid greenyellow; 
+    border-left: 4px solid rgb(0, 255, 34); 
 }
 
 .correction-item.incorrect {
