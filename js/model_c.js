@@ -1,5 +1,35 @@
 const allQuestions = [
   {
+    q: "Which language is used to style web pages?",
+    options: ["HTML", "JQuery", "CSS", "XML"],
+    answer: 2
+  },
+  {
+    q: "Which is not a programming language?",
+    options: ["Python", "HTML", "C++", "Java"],
+    answer: 1
+  },
+  {
+    q: "What does DOM stand for?",
+    options: ["Document Object Model", "Display Object Management", "Digital Ordinance Model",
+      "Desktop Oriented Mode"], answer: 0
+  },
+  {
+    q: "Which is a JavaScript framework?",
+    options: ["Laravel", "Django", "React", "Flask"],
+    answer: 2
+  },
+  {
+    q: "Which tag is used to link JavaScript file?",
+    options: ["<js>", "<script>", "<link>", "<javascript>"],
+    answer: 1
+  },
+  {
+    q: "Which company developed TypeScript?",
+    options: ["Google", "Facebook", "Microsoft", "Amazon"],
+    answer: 2
+  },
+  {
     q: "Which language is used for web apps?",
     options: ["Python", "Java", "PHP", "All"],
     answer: 3,
@@ -99,7 +129,7 @@ let timer = 1800;
 let timerInterval;
 
 function startQuiz() {
-  questions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 15);
+  questions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 20);
   userAnswers = Array(questions.length).fill(null);
   currentQuestion = 0;
   score = 0;
@@ -109,9 +139,8 @@ function startQuiz() {
 
 function displayQuestion() {
   const q = questions[currentQuestion];
-  document.getElementById("question-number").textContent = `${
-    currentQuestion + 1
-  }.`;
+  document.getElementById("question-number").textContent = `${currentQuestion + 1
+    }.`;
   document.getElementById("question-text").textContent = q.q;
 
   const optionsDiv = document.getElementById("options");
@@ -152,9 +181,8 @@ function startTimer() {
     timer--;
     let minutes = Math.floor(timer / 60);
     let seconds = timer % 60;
-    document.getElementById("timer").textContent = `Time Left: ${minutes}:${
-      seconds < 10 ? "0" : ""
-    }${seconds}`;
+    document.getElementById("timer").textContent = `Time Left: ${minutes}:${seconds < 10 ? "0" : ""
+      }${seconds}`;
     if (timer <= 0) {
       clearInterval(timerInterval);
       finishQuiz();
