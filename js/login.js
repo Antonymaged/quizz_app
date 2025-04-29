@@ -1,7 +1,5 @@
-// Local user storage
 const users = JSON.parse(localStorage.getItem('users')) || [];
 
-// DOM Elements
 const container = document.getElementById('container');
 const signUpButton = document.getElementById('signUpOverlay');
 const signInButton = document.getElementById('signInOverlay');
@@ -12,7 +10,6 @@ const demoSignUp = document.getElementById('demoSignUp');
 const avatarInput = document.getElementById('avatar');
 const avatarPreview = document.getElementById('avatar');
 
-// Event Listeners
 signUpButton.addEventListener('click', () => {
     container.classList.add('right-panel-active');
 });
@@ -27,7 +24,6 @@ demoSignIn.addEventListener('click', handleDemoLogin);
 demoSignUp.addEventListener('click', handleDemoSignUp);
 avatarInput.addEventListener('change', handleAvatarUpload);
 
-// Functions
 function handleLogin(e) {
     e.preventDefault();
     const email = signInForm.email.value;
@@ -37,13 +33,12 @@ function handleLogin(e) {
     signInBtn.disabled = true;
     signInBtn.textContent = 'Loading...';
     
-    // Simulate network delay
     setTimeout(() => {
         const user = users.find(u => u.email === email && u.password === password);
-        
+        localStorage.setItem('currentUser', JSON.stringify(user));
         if (user) {
             showToast(`Welcome back, ${user.username}!`, 'success');
-            window.location.href = './Quiz.html';
+            window.location.href = './';
         } else {
             showToast('Invalid email or password', 'error');
         }
@@ -63,7 +58,6 @@ function handleSignUp(e) {
     signUpBtn.disabled = true;
     signUpBtn.textContent = 'Loading...';
     
-    // Simulate network delay
     setTimeout(() => {
         if (users.some(u => u.email === email)) {
             showToast('Email already registered', 'error');
@@ -128,7 +122,6 @@ function showToast(message, type) {
     }).showToast();
 }
 
-// Initialize with a demo user if none exists
 if (users.length === 0) {
     users.push({
         username: 'Demo User',
