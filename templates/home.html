@@ -12,49 +12,49 @@
     <header class="header ">
       
      <h1>quiz </h1>
-     <i class="fa-solid fa-circle-user"  style="color: #ffffff;"></i>
+     <i class="fa-solid fa-circle-user" onclick="gotoprofile()" style="color: #ffffff;"></i>
       
     </header>
 <section class="section-1">
     <div class="post " >
         <h1>Test Your Knowledge!</h1>
         <p>Begin your learning journey with fun and interactive quizzes that help you grow your skills.</p>
-        <button>Start Now</button>
+        <button onclick="login()">Start Now</button>
     </div>
 
 </section >
 
  <section class="models">
  
-    <div class="model">
+    <div class="model" onclick="gotomodelb()">
         <i class="fa-solid fa-lightbulb " style="color: #3F739A;"></i>
-        <h3>Model 1</h3>
+        <h3>Model B</h3>
         <p>General knowledge questions across various topics to challenge your mind.</p>
 
     </div>
-    <div class="model">
+    <div class="model" onclick="gotomodelc()">
         <i class="fa-solid fa-brain" style="color: #3F739A;"></i>
-        <h3>Model 2</h3>
+        <h3>Model c</h3>
         <p>Educational quizzes in subjects like math, science, and languages.</p>
 
     </div>
 
-    <div  class="model" >
+    <div  class="model"onclick="gotoquiz()"> 
         <i class="fa-solid fa-book-open" style="color: #3F739A;"></i>
-        <h3>Model 3</h3>
+        <h3> Model D</h3>
       <p>Interactive quizzes designed to boost your critical thinking and problem-solving skills.</p>
 
     </div>
-    <div  class="model">
+    <div  class="model" onclick="gotoResult()">
 
-        <i class="fas fa-clock"  style="color: #3F739A;"></i>
-        <h3>Model 4</h3>
+        <i class="fa-solid fa-list-check"  style="color: #3F739A;"></i>
+        <h3>Quiz Result </h3>
         <p>Daily short challenges to keep your brain active and engaged every day.</p>
 
     </div>
 
 </section>
     
-    
+    <script src="../js/home.js"></script>
 </body>
 </html>

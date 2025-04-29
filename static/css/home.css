@@ -12,26 +12,39 @@
    background-color: #002141;
    padding: 20px 30px ;
    color: white;
-   animation:  fadeInDown 2s ease-in;
+   animation-name: head ;
+    animation-duration: 0.5s;
+   animation-timing-function: linear;
+ 
    display: flex;
    justify-content: space-between;
    i{
     font-size: 40px;
     margin-top: 10px;
-   }
+    transition: 1s;
+
 
   
 
 }
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(1); }
+}
+
+@keyframes head  {
+  0%{
+    opacity: 0;
+    transform: translateY(-30px);
   }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
 
 .section-1{
     width: 100%;
-    padding: 75px 0px ;
-    border-radius: 2px;
+    padding: 84px 0px ;
+    
     background: linear-gradient(to right, #3F739A, #8DC4FF);
     color: white;
    
@@ -40,7 +53,13 @@
 
     text-align: center;
     h1{
+       font-size: 50px;
         margin-bottom: 20px ;
+        animation-name: post;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
     }
     p{
         font-size: 20px;
@@ -55,10 +74,12 @@
         border: none;
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.3s ease;
+        
     }
     button:hover{
         background-color: #E6F3FF;
         transform: scale(1.05);
+       
     } 
 
 
@@ -68,10 +89,18 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    padding: 95px 20px;
+    padding: 70px 20px;
     background-color: #E6F3FF;
     text-align: center;
-    animation: fadeInUp 1.5s ease-in;
+
+    animation-name: model ;
+    animation-duration: 0.5s;
+   animation-timing-function: linear;
+
+
+
+
+   
   .model{
     background-color: #ffffff ;
     padding: 20px;
@@ -82,6 +111,8 @@
   .model:hover{
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #E6F3FF;
+    
   }
     
 .model i {
@@ -98,16 +129,34 @@
     color: #001528;
 }
 
-
 }
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0.1); }
+
+
+
+@keyframes model{   
+  0%{
+    opacity: 0;
+    transform: translatey(-50px);
+  }
+  100%{
+    opacity: 1;
+    transform: translatey(0px);
+  }
+  
 }
- 
-
-
-
+@keyframes post{
+  0%{
+    
+    transform: translatey(0px);
+  }
+  50%{
+    transform: translatey(-10px);
+  }
+  100%{
+  
+    transform: translatey(0px);
+  }
+}
 
 
 
