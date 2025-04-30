@@ -38,7 +38,7 @@ function handleLogin(e) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         if (user) {
             showToast(`Welcome back, ${user.username}!`, 'success');
-            window.location.href = './';
+            window.location.href = './home.html';
         } else {
             showToast('Invalid email or password', 'error');
         }
@@ -78,7 +78,7 @@ function handleSignUp(e) {
             container.classList.remove('right-panel-active');
             signInForm.email.value = email;
             signInForm.password.value = password;
-            window.location.href = './Quiz.html';
+            window.location.href = './home.html';
         }
         
         signUpBtn.disabled = false;
