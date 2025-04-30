@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>20 Questions Quiz</title>
-    <link rel="stylesheet" href="../static/css/tony-model.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Quiz App</title>
+    <link rel="stylesheet" href="../static/css/tony_model_question_list.css">
+    <link rel="stylesheet" href="../static/css/tony-model.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
+    <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
     <div class="quiz-container">
-        <button id="theme-toggle" class="theme-toggle">
-            <i class="fas fa-sun"></i>
-        </button>
-        <h1>20 Questions Quiz</h1>
-        <div class="timer">
-            <i class="fas fa-clock"></i>
-            <span id="time-display">10:00</span>
+        <div class="quiz-content">
+            <div class="timer">Time: <span id="time-display">10:00</span></div>
+            <div class="question-counter"><span id="question-number"></span></div>
+            <div class="question-and-list">
+                <div class="question-section">
+                    <h1 id="question" class="question"></h1>
+                    <div id="choices" class="choices"></div>
+                </div>
+                <div class="question-list" id="question-list">
+                    <h3>Questions</h3>
+                    <div id="question-list-items"></div>
+                </div>
+            </div>
+            <div id="navigation">
+                <button id="prev-btn">Previous</button>
+                <button id="reset-btn">Reset</button>
+                <button id="next-btn">Next</button>
+            </div>
+            <div id="result"></div>
+            <button id="restart-btn">Restart</button>
         </div>
-        <div class="question-counter">
-            <span id="question-number">Question 1/20</span>
-        </div>
-        <div class="question" id="question"></div>
-        <div class="choices" id="choices"></div>
-        <div id="navigation">
-            <button id="prev-btn">Previous</button>
-            <button id="reset-btn">Reset Answer</button>
-            <button id="next-btn">Next</button>
-        </div>
-        <div id="result"></div>
-        <button id="restart-btn">Start Again</button>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script src="../js/tony-model.js"></script>
+    <script src="../js/tony_model_question_list.js"></script>
 </body>
+
 </html>
