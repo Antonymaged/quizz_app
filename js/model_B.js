@@ -19,6 +19,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeTaken = document.getElementById("time-taken");
     const correctionsDisplay = document.getElementById("corrections-display");
 
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    // Load saved theme from localStorage and set initial icon
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    } else {
+        document.body.classList.remove('light-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+
+    // Add click event listener for theme toggle
+    themeToggle.addEventListener('click', () => {
+        const isLightMode = document.body.classList.contains('light-mode');
+        
+        if (isLightMode) {
+            // Switch to dark mode
+            document.body.classList.remove('light-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            // Switch to light mode
+            document.body.classList.add('light-mode');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
     // Quiz State
     let currentQuestionIndex = 0;
     let score = 0;
@@ -376,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function restartQuiz() {
         showScreen(welcomeScreen);
         clearInterval(timer);
-        correctionsDisplay.innerHTML = ""; // Clear corrections when restarting
+        correctionsDisplay.innerHTML = "";
     }
 
     function showScreen(screen) {

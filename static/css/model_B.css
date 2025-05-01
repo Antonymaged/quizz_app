@@ -8,8 +8,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #CFE7FF; /* Lighter blue from palette for text readability */
-    background-image: radial-gradient(rgba(63, 115, 154, 0.5), rgba(0, 33, 65, 0.5)), url('../img/bg\ basel\'s\ page.jpg'); /* Dark overlay for the background image */
+    color: #CFE7FF;
+    background-image: radial-gradient(rgba(0, 33, 65, 0.8), rgba(0, 10, 30, 0.8)), url('../img/bg basel\'s page.jpg');
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -19,12 +20,44 @@ body {
     padding: 20px;
 }
 
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: rgba(207, 231, 255, 0.2);
+    border: 1px solid #8DC4FF;
+    font-size: 1.5rem;
+    color: #CFE7FF;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 10, 30, 0.3);
+    z-index: 1000;
+}
+
+.theme-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: #8DC4FF;
+    background: rgba(207, 231, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 10, 30, 0.4);
+}
+
+.theme-toggle:hover i {
+    transform: rotate(15deg);
+}
+
 .screen {
     display: none;
     padding: 30px;
     background: rgba(141, 196, 255, 0.2);
     border-radius: 15px;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(20px);
+    transition: background 0.3s ease;
 }
 
 .screen.active {
@@ -34,12 +67,14 @@ body {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #CFE7FF; /* Lighter blue for headings */
+    color: #CFE7FF;
+    transition: color 0.3s ease;
 }
 
 p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    transition: color 0.3s ease;
 }
 
 .quiz-header {
@@ -48,6 +83,7 @@ p {
     align-items: center;
     margin-bottom: 20px;
     font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
 .timer {
@@ -57,6 +93,7 @@ p {
     background: rgba(207, 231, 255, 0.2);
     padding: 10px 15px;
     border-radius: 10px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .quiz-content {
@@ -78,14 +115,14 @@ p {
 
 .progress-ring-circle {
     fill: none;
-    stroke: #8DC4FF; /* Lighter blue from palette for progress circle */
+    stroke: #8DC4FF;
     stroke-width: 5;
     stroke-linecap: round;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
-    stroke-dasharray: 220; /* Circumference = 2 * π * 35 ≈ 220 */
+    stroke-dasharray: 220;
     stroke-dashoffset: 220;
-    transition: stroke-dashoffset 0.3s ease;
+    transition: stroke-dashoffset 0.3s ease, stroke 0.3s ease;
 }
 
 #progress-percentage {
@@ -95,13 +132,15 @@ p {
     transform: translate(-50%, -50%);
     font-size: 1rem;
     font-weight: bold;
-    color: #CFE7FF; /* Lighter blue for percentage text */
+    color: #CFE7FF;
+    transition: color 0.3s ease;
 }
 
 #question-text {
     font-size: 1.5rem;
     margin-bottom: 30px;
-    color: #CFE7FF; /* Lighter blue for question text */
+    color: #CFE7FF;
+    transition: color 0.3s ease;
 }
 
 .answer-options {
@@ -117,40 +156,39 @@ p {
     border: none;
     border-radius: 10px;
     background: rgba(207, 231, 255, 0.2);
-    color: #CFE7FF; /* Lighter blue for answer text */
+    color: #CFE7FF;
     cursor: pointer;
-    transition: background 0.3s ease;
-    
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .answer-btn:hover {
     background: rgba(207, 231, 255, 0.4);
-    box-shadow: 0 4px 8px rgba(0, 33, 65, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 10, 30, 0.2);
 }
 
 .answer-btn.selected {
     background: rgba(207, 231, 255, 0.6);
-    color: #002141;
+    color: #001528;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 33, 65, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 10, 30, 0.2);
 }
 
 .answer-input {
     background: rgba(207, 231, 255, 0.2);
     border: none;
     color: #CFE7FF;
-    box-shadow: 0 4px 8px rgba(0, 33, 65, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 10, 30, 0.5);
 }
 
-
 .answer-input::placeholder {
-    color: rgba(207, 231, 255, 0.4); /* Slightly darker shade of #CFE7FF for placeholder */
+    color: rgba(207, 231, 255, 0.4);
+    transition: color 0.3s ease;
 }
 
 .answer-input:focus {
-    outline: none; 
-    border: none; 
-    background: rgba(207, 231, 255, 0.3); 
+    outline: none;
+    border: none;
+    background: rgba(207, 231, 255, 0.3);
 }
 
 .btn {
@@ -158,26 +196,26 @@ p {
     font-size: 1.1rem;
     border: none;
     border-radius: 10px;
-    background: #002141; /* Mid-tone blue from palette for primary buttons */
-    color: #CFE7FF; /* Lighter blue for button text */
+    background: #002141;
+    color: #CFE7FF;
     cursor: pointer;
-    transition: background 0.5s ease;
+    transition: background 0.5s ease, color 0.3s ease;
 }
 
 .btn:hover {
-    background: #001528; /* Slightly darker shade of #3F739A for hover */
+    background: #001528;
 }
 
 .nav-btn {
-    background: linear-gradient(135deg, #002141, #3F739A); /* Gradient for navigation buttons */
-    box-shadow: 0 4px 8px rgba(0, 33, 65, 0.9); /* Subtle shadow for depth */
+    background: linear-gradient(135deg, #002141, #3F739A);
+    box-shadow: 0 4px 8px rgba(0, 10, 30, 0.9);
     transition: 0.4s;
 }
 
 .nav-btn:hover {
-    background: linear-gradient(135deg, #001528, #3F739A); /* Gradient for hover effect */
-    box-shadow: 0 6px 12px rgba(0, 21, 40, 0.4); /* Enhanced shadow on hover */
-    transform: scale(1.05); /* Slight scale effect on hover */
+    background: linear-gradient(135deg, #001528, #3F739A);
+    box-shadow: 0 6px 12px rgba(0, 10, 30, 0.4);
+    transform: scale(1.05);
     transition: 0.5s;
 }
 
@@ -203,11 +241,13 @@ p {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #8DC4FF #001528;
+    transition: background 0.3s ease;
 }
 
 .question-list h3 {
     font-size: 1.2rem;
     margin-bottom: 15px;
+    transition: color 0.3s ease;
 }
 
 .question-item {
@@ -216,7 +256,7 @@ p {
     background: rgba(207, 231, 255, 0.2);
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease, border 0.3s ease;
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
 
 .question-item:hover {
@@ -224,13 +264,13 @@ p {
 }
 
 .question-item.active {
-    border: 2px solid #8DC4FF; /* Lighter blue outline for current question */
+    border: 2px solid #8DC4FF;
     background: rgba(207, 231, 255, 0.1);
 }
 
 .question-item.answered {
-    background: linear-gradient(135deg, #CFE7FF, #8DC4FF); /* Gradient for answered questions */
-    color: #001528; /* Darkest blue for readability on light background */
+    background: linear-gradient(135deg, #CFE7FF, #8DC4FF);
+    color: #001528;
 }
 
 /* Corrections Display Styling */
@@ -242,6 +282,7 @@ p {
     padding: 15px;
     background: rgba(207, 231, 255, 0.2);
     border-radius: 10px;
+    transition: background 0.3s ease;
 }
 
 .corrections {
@@ -254,14 +295,15 @@ p {
     padding: 10px;
     border-radius: 5px;
     background: rgba(207, 231, 255, 0.2);
+    transition: background 0.3s ease;
 }
 
 .correction-item.correct {
-    border-left: 4px solid rgb(0, 255, 34); 
+    border-left: 4px solid rgb(0, 255, 34);
 }
 
 .correction-item.incorrect {
-    border-left: 4px solid red; 
+    border-left: 4px solid red;
 }
 
 .correction-item p {
@@ -286,6 +328,7 @@ p {
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    transition: color 0.3s ease;
 }
 
 .blank {
@@ -300,16 +343,16 @@ p {
     font-size: 1rem;
     color: #CFE7FF;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
 
 .blank.filled {
-    background: rgba(0, 33, 65, 0.4);
+    background: rgba(0, 10, 30, 0.4);
     border: 2px solid #8DC4FF;
 }
 
 .blank.drag-over {
-    background: rgba(0, 33, 65, 0.4);
+    background: rgba(0, 10, 30, 0.4);
 }
 
 .word-options {
@@ -321,21 +364,161 @@ p {
 
 .word {
     padding: 8px 15px;
-    background: #3F739A; 
+    background: #3F739A;
     color: #CFE7FF;
     border-radius: 5px;
     cursor: grab;
     user-select: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .word:hover {
-    background: #326080; 
+    background: #326080;
 }
 
 .word.dragging {
     opacity: 0.5;
     background: #8DC4FF;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    color: #002141;
+    background-image: radial-gradient(rgba(207, 231, 255, 0.8), rgba(141, 196, 255, 0.8)), url('../img/bg basel\'s page.jpg');
+}
+
+body.light-mode .theme-toggle {
+    color: #002141;
+    background: rgba(141, 196, 255, 0.5); /* Increased opacity for better visibility */
+    border: 1px solid #3F739A;
+}
+
+body.light-mode .theme-toggle:hover {
+    color: #3F739A;
+    background: #8DC4FF; /* More vibrant hover */
+}
+
+body.light-mode .screen {
+    background: rgba(141, 196, 255, 0.5); /* Increased opacity */
+}
+
+body.light-mode h1,
+body.light-mode p,
+body.light-mode .quiz-header,
+body.light-mode #progress-percentage,
+body.light-mode #question-text,
+body.light-mode .sentence {
+    color: #002141;
+}
+
+body.light-mode .timer {
+    background: rgba(141, 196, 255, 0.5); /* Increased opacity */
+    color: #002141;
+}
+
+body.light-mode .progress-ring-circle {
+    stroke: #3F739A;
+}
+
+body.light-mode .answer-btn,
+body.light-mode .answer-input {
+    background: rgba(63, 115, 154, 0.5); /* #3F739A for choices, increased opacity */
+    color: #002141;
+}
+
+body.light-mode .answer-btn:hover {
+    background: #8DC4FF; /* More vibrant hover */
+}
+
+body.light-mode .answer-btn.selected {
+    background: #002141;
+    color: #CFE7FF;
+}
+
+body.light-mode .answer-input::placeholder {
+    color: rgba(0, 33, 65, 0.4);
+}
+
+body.light-mode .answer-input:focus {
+    background: rgba(63, 115, 154, 0.7); /* Slightly darker for focus */
+}
+
+body.light-mode .btn {
+    background: #8DC4FF;
+    color: #002141;
+}
+
+body.light-mode .btn:hover {
+    background: #CFE7FF;
+}
+
+body.light-mode .nav-btn {
+    background: linear-gradient(135deg, #8DC4FF, #CFE7FF);
+}
+
+body.light-mode .nav-btn:hover {
+    background: linear-gradient(135deg, #CFE7FF, #8DC4FF);
+}
+
+body.light-mode .question-list {
+    background: rgba(141, 196, 255, 0.5); /* #8DC4FF for question list, increased opacity */
+    scrollbar-color: #3F739A #CFE7FF;
+}
+
+body.light-mode .question-item {
+    background: rgba(141, 196, 255, 0.5); /* Increased opacity */
+    color: #002141;
+}
+
+body.light-mode .question-item:hover {
+    background: #8DC4FF; /* More vibrant hover */
+}
+
+body.light-mode .question-item.active {
+    border: 2px solid #3F739A;
+    background: rgba(141, 196, 255, 0.3); /* Slightly darker for active state */
+}
+
+body.light-mode .question-item.answered {
+    background: #002141; /* Match .answer-btn.selected for consistency */
+    color: #CFE7FF;
+}
+
+body.light-mode .corrections {
+    background: rgba(141, 196, 255, 0.5); /* Increased opacity */
+}
+
+body.light-mode .correction-item {
+    background: rgba(141, 196, 255, 0.5); /* Increased opacity */
+}
+
+body.light-mode .blank {
+    background: rgba(63, 115, 154, 0.5); /* #3F739A to match choices */
+    border: 2px dashed #3F739A;
+    color: #002141;
+}
+
+body.light-mode .blank.filled {
+    background: #8DC4FF; /* More vibrant filled state */
+    border: 2px solid #3F739A;
+}
+
+body.light-mode .blank.drag-over {
+    background: #8DC4FF; /* More vibrant drag-over state */
+}
+
+body.light-mode .word {
+    background: #8DC4FF;
+    color: #002141;
+}
+
+body.light-mode .word:hover {
+    background: #CFE7FF;
+}
+
+body.light-mode .word.dragging {
+    background: #002141;
+    color: #CFE7FF;
 }
 
 @media (max-width: 600px) {
@@ -373,5 +556,12 @@ p {
     .word {
         padding: 6px 12px;
         font-size: 0.9rem;
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+        padding: 6px;
     }
 }
