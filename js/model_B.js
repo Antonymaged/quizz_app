@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // DOM Elements
     const welcomeScreen = document.getElementById("welcome-screen");
     const quizScreen = document.getElementById("quiz-screen");
     const resultsScreen = document.getElementById("results-screen");
@@ -19,11 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeTaken = document.getElementById("time-taken");
     const correctionsDisplay = document.getElementById("corrections-display");
 
-    // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
 
-    // Load saved theme from localStorage and set initial icon
     if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-mode');
         themeIcon.classList.remove('fa-sun');
@@ -34,18 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
         themeIcon.classList.add('fa-sun');
     }
 
-    // Add click event listener for theme toggle
     themeToggle.addEventListener('click', () => {
         const isLightMode = document.body.classList.contains('light-mode');
         
         if (isLightMode) {
-            // Switch to dark mode
             document.body.classList.remove('light-mode');
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
             localStorage.setItem('theme', 'dark');
         } else {
-            // Switch to light mode
             document.body.classList.add('light-mode');
             themeIcon.classList.remove('fa-sun');
             themeIcon.classList.add('fa-moon');
@@ -53,17 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Quiz State
     let currentQuestionIndex = 0;
     let score = 0;
-    let timeLeft = 10 * 60; // 10 minutes
+    let timeLeft = 10 * 60;
     let userAnswers = [];
     let timer;
     let quizStartTime;
 
-    // Questions (33 total: 15 Liverpool-focused, 15 other EPL, 3 drag-and-drop)
     const questions = [
-        // Liverpool-focused (15 questions)
         { type: "mcq", question: "Who is Liverpool's current manager as of 2025?", answers: [{ text: "Jurgen Klopp", correct: false }, { text: "Arne Slot", correct: true }, { text: "Pep Guardiola", correct: false }, { text: "Steven Gerrard", correct: false }] },
         { type: "true-false", question: "Liverpool has won the Premier League title more than 20 times.", answer: false },
         { type: "text", question: "What is the name of Liverpool's home stadium?", answer: "Anfield", acceptableAnswers: ["Anfield", "anfield"] },
@@ -79,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { type: "text", question: "What is the name of Liverpool's famous stand known for its atmosphere?", answer: "The Kop", acceptableAnswers: ["The Kop", "Kop", "the kop"] },
         { type: "mcq", question: "Which Liverpool player scored the decisive penalty in the 2019 Champions League final?", answers: [{ text: "Mohamed Salah", correct: true }, { text: "Divock Origi", correct: false }, { text: "Sadio Mane", correct: false }, { text: "Alisson Becker", correct: false }] },
         { type: "true-false", question: "Liverpool's 'You'll Never Walk Alone' anthem was originally from a musical.", answer: true },
-        // Other EPL Teams (15 questions)
         { type: "mcq", question: "Which team has won the most Premier League titles?", answers: [{ text: "Manchester United", correct: true }, { text: "Chelsea", correct: false }, { text: "Arsenal", correct: false }, { text: "Manchester City", correct: false }] },
         { type: "true-false", question: "Arsenal's 'Invincibles' season was in 2003-04.", answer: true },
         { type: "text", question: "What is Manchester United's nickname?", answer: "Red Devils", acceptableAnswers: ["Red Devils", "red devils", "The Red Devils"] },
@@ -95,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { type: "text", question: "What is the name of Manchester City's home stadium?", answer: "Etihad Stadium", acceptableAnswers: ["Etihad Stadium", "etihad stadium", "Etihad"] },
         { type: "mcq", question: "Which player scored the most goals in a single Premier League season as of 2025?", answers: [{ text: "Erling Haaland", correct: true }, { text: "Alan Shearer", correct: false }, { text: "Thierry Henry", correct: false }, { text: "Cristiano Ronaldo", correct: false }] },
         { type: "true-false", question: "Aston Villa has never won the European Cup.", answer: false },
-        // Drag-and-Drop Questions (3 questions)
         { 
             type: "drag-drop", 
             question: "Complete the sentence about Liverpool's history:", 
@@ -119,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     ];
 
-    // Event Listeners
     startBtn.addEventListener("click", startQuiz);
     prevBtn.addEventListener("click", () => {
         if (currentQuestionIndex > 0) {
@@ -138,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     restartBtn.addEventListener("click", restartQuiz);
     showCorrectionsBtn.addEventListener("click", showCorrections);
 
-    // Functions
     function startQuiz() {
         quizStartTime = new Date();
         userAnswers = new Array(questions.length).fill(null);
@@ -206,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const container = document.createElement("div");
             container.classList.add("drag-drop-container");
 
-            // Create the sentence with blanks
             const sentenceDiv = document.createElement("div");
             sentenceDiv.classList.add("sentence");
             const parts = question.sentence.split("___");
@@ -233,7 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         blank.textContent = word;
                         blank.classList.add("filled");
 
-                        // Update user answers
                         const currentAnswer = userAnswers[currentQuestionIndex]?.userAnswer || new Array(question.correctAnswers.length).fill("");
                         currentAnswer[blank.dataset.index] = word;
                         userAnswers[currentQuestionIndex] = { userAnswer: currentAnswer };
@@ -241,7 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         renderQuestionList();
                     });
 
-                    // Restore previous answer if exists
                     if (userAnswers[currentQuestionIndex]?.userAnswer?.[index]) {
                         blank.textContent = userAnswers[currentQuestionIndex].userAnswer[index];
                         blank.classList.add("filled");
@@ -251,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // Create the word options
             const wordOptions = document.createElement("div");
             wordOptions.classList.add("word-options");
             question.words.forEach(word => {
@@ -301,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return true;
         }).length;
         const percentage = (answeredCount / questions.length) * 100;
-        const circumference = 220; // 2 * π * 35
+        const circumference = 220;
         const offset = circumference - (percentage / 100) * circumference;
         progressCircle.style.strokeDashoffset = offset;
         progressPercentage.textContent = `${Math.round(percentage)}%`;
@@ -338,7 +321,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const minutes = Math.floor(timeDiff / 60);
         const seconds = Math.floor(timeDiff % 60);
 
-        // Evaluate answers at the end
         userAnswers.forEach((answer, index) => {
             if (answer === null) return;
             const question = questions[index];
