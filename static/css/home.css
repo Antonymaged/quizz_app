@@ -1,32 +1,185 @@
 *{
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
- 
-    
 }
 
 .header {
-    
-   text-align: center; 
-   background-color: #002141;
-   padding: 20px 30px ;
-   color: white;
-   animation-name: head ;
-    animation-duration: 0.5s;
-   animation-timing-function: linear;
- 
-   display: flex;
-   justify-content: space-between;
-   i{
-    font-size: 40px;
-    margin-top: 10px;
-    transition: 1s;
-
-
-  
-
+    text-align: center; 
+    background: linear-gradient( #002141, #001528);
+    padding: 20px 30px;
+    color: #CFE7FF;
+    animation: head 0.5s ease-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 33, 65, 0.2);
+    position: relative;
+    overflow: hidden;
+    height: 30px;
 }
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.header i {
+    font-size: 2rem;
+    color: #CFE7FF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.header i:hover {
+    transform: scale(1.1);
+    background: rgba(207, 231, 255, 0.1);
+}
+
+.section-1 {
+    width: 100%;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #002141, #3F739A);
+    color: #CFE7FF;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(207, 231, 255, 0.1)" stroke-width="2"/></svg>') repeat;
+    opacity: 0.1;
+}
+
+.post {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.post h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: post 2s infinite ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #CFE7FF, #8DC4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.post button {
+    padding: 15px 30px;
+    margin-top: 20px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #CFE7FF, #8DC4FF);
+    color: #002141;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 33, 65, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.post button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.post button:hover::before {
+    transform: translateX(100%);
+}
+
+.models {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 80px 20px;
+    background-color: #CFE7FF;
+    text-align: center;
+    animation: model 0.5s ease-out;
+}
+
+.model {
+    background: radial-gradient(rgba(207, 231, 255, 0.9), rgba(63, 115, 154, 0.3));
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 33, 65, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 33, 65, 0.1);
+}
+
+.model::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #3F739A, #8DC4FF);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.model:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 33, 65, 0.15);
+    border-color: #8DC4FF;
+}
+
+.model i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #3F739A, #8DC4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.model h3 {
+    margin: 20px 0;
+    color: #002141;
+    font-size: 1.5rem;
+}
+
+.model p {
+    color: #001528;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes head  {
@@ -38,100 +191,7 @@
     opacity: 1;
     transform: translateY(0px);
   }
-
 }
-
-.section-1{
-    width: 100%;
-    padding: 84px 0px ;
-    
-    background: linear-gradient(to right, #3F739A, #8DC4FF);
-    color: white;
-   
-   .post{
-    width: 100%;
-
-    text-align: center;
-    h1{
-       font-size: 50px;
-        margin-bottom: 20px ;
-        animation-name: post;
-        animation-duration: 2s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-
-    }
-    p{
-        font-size: 20px;
-        margin-bottom: 20px ;
-    }
-    button{
-        
-        padding: 10px;
-        border-radius: 10px;
-        background-color: white;
-        color: #3F739A;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        
-    }
-    button:hover{
-        background-color: #E6F3FF;
-        transform: scale(1.05);
-       
-    } 
-
-
-   }
-}
-.models {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 70px 20px;
-    background-color: #E6F3FF;
-    text-align: center;
-
-    animation-name: model ;
-    animation-duration: 0.5s;
-   animation-timing-function: linear;
-
-
-
-
-   
-  .model{
-    background-color: #ffffff ;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }  
-  .model:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #E6F3FF;
-    
-  }
-    
-.model i {
-    font-size: 50px ;
-    margin-bottom: 15px;
-}
-
-.model h3 {
-    margin: 15px 0 ;
-    color: #002141;
-}
-
-.model p {
-    color: #001528;
-}
-
-}
-
-
 
 @keyframes model{   
   0%{
@@ -142,27 +202,15 @@
     opacity: 1;
     transform: translatey(0px);
   }
-  
 }
 @keyframes post{
   0%{
-    
     transform: translatey(0px);
   }
   50%{
     transform: translatey(-10px);
   }
   100%{
-  
     transform: translatey(0px);
   }
 }
-
-
-
-
-
-
-
-
-

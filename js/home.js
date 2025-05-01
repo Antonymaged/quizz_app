@@ -9,12 +9,13 @@ function gotomodelb(){
     window.location.href = "model_B.html";
 }
 
+function gotomodeld(){
+    window.location.href = "model_D.html";
+}
+
 function gotomodelc(){
     window.location.href = "model_C.html";
 }
 function gotoquiz(){
     window.location.href = "Quiz.html";
-}
-function gotoResult(){
-    window.location.href = "Quiz_Final_Result.html";
 }
