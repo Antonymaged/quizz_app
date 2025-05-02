@@ -1,11 +1,14 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
 .header {
-    text-align: center; 
-    background: linear-gradient( #002141, #001528);
+    text-align: center;
+    background: linear-gradient(#002141, #001528);
     padding: 20px 30px;
     color: #CFE7FF;
     animation: head 0.5s ease-out;
@@ -19,6 +22,7 @@
 }
 
 .header h1 {
+    font-family: "Cal Sans", sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -108,7 +112,9 @@
 .post button:hover::before {
     transform: translateX(100%);
 }
-
+.section-1 .post h1{
+    font-family: "Raleway", sans-serif;
+}
 .models {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -118,6 +124,8 @@
     text-align: center;
     animation: model 0.5s ease-out;
 }
+
+
 
 .model {
     background: radial-gradient(rgba(207, 231, 255, 0.9), rgba(63, 115, 154, 0.3));
@@ -159,12 +167,14 @@
 }
 
 .model h3 {
+    font-family: "Raleway", sans-serif;
     margin: 20px 0;
     color: #002141;
     font-size: 1.5rem;
 }
 
 .model p {
+    font-family: "Raleway", sans-serif;
     color: #001528;
     line-height: 1.6;
     font-size: 1.1rem;
@@ -174,43 +184,50 @@
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
 }
 
-@keyframes head  {
-  0%{
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100%{
-    opacity: 1;
-    transform: translateY(0px);
-  }
+@keyframes head {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
-@keyframes model{   
-  0%{
-    opacity: 0;
-    transform: translatey(-50px);
-  }
-  100%{
-    opacity: 1;
-    transform: translatey(0px);
-  }
+@keyframes model {
+    0% {
+        opacity: 0;
+        transform: translatey(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translatey(0px);
+    }
 }
-@keyframes post{
-  0%{
-    transform: translatey(0px);
-  }
-  50%{
-    transform: translatey(-10px);
-  }
-  100%{
-    transform: translatey(0px);
-  }
+
+@keyframes post {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-10px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
 }

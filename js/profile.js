@@ -4,10 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Elements
     const editProfileBtn = document.querySelector('.edit-profile-btn');
     const userNameElement = document.querySelector('.user-name');
+    let isEditing = false; // change value   
     
     // Edit Profile button functionality
     if (editProfileBtn) {
         editProfileBtn.addEventListener('click', function() {
+            //check error
+            if (isEditing) {
+                showToast('please click : save name', 'error');
+                return;
+            }
+            isEditing = true;
+            
             // Get current username
             const currentUsername = userNameElement.textContent;
             
@@ -82,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Remove edit container and show username
                 editContainer.remove();
                 userNameElement.style.display = 'block';
+                //check
+                isEditing = false;
             });
             
             // Cancel button click handler
@@ -89,6 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Remove edit container and show username with no changes
                 editContainer.remove();
                 userNameElement.style.display = 'block';
+                // check
+                isEditing = false;
             });
             
             // Handle Enter key press

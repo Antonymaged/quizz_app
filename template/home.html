@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Master - Test Your Knowledge</title>
     <link rel="stylesheet" href="../static/css/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="icon" href="../static/img/quiz.png">
 </head>
+
 <body>
     <header class="header">
         <h1>Quiz Master</h1>
@@ -17,7 +22,8 @@
         <section class="section-1">
             <div class="post">
                 <h1>Test Your Knowledge!</h1>
-                <p>Embark on an exciting journey of learning with our interactive quizzes. Challenge yourself, track your progress, and become a quiz master!</p>
+                <p>Embark on an exciting journey of learning with our interactive quizzes. Challenge yourself, track
+                    your progress, and become a quiz master!</p>
                 <button onclick="login()" class="cta-button">
                     <i class="fas fa-sign-out-alt"></i> Log out
                 </button>
@@ -28,29 +34,34 @@
             <div class="model" onclick="gotomodeld()">
                 <i class="fa-solid fa-lightbulb"></i>
                 <h3>General Knowledge</h3>
-                <p>Test your awareness with questions spanning history, science, arts, and more. Perfect for trivia enthusiasts!</p>
+                <p>Test your awareness with questions spanning history, science, arts, and more. Perfect for trivia
+                    enthusiasts!</p>
             </div>
 
             <div class="model" onclick="gotomodelc()">
                 <i class="fa-solid fa-code"></i>
                 <h3>Web Development</h3>
-                <p>Test your knowledge of technology frameworks and programming languages focused on web development, including HTML, CSS, JavaScript, and more.</p>
+                <p>Test your knowledge of technology frameworks and programming languages focused on web development,
+                    including HTML, CSS, JavaScript, and more.</p>
             </div>
 
             <div class="model" onclick="gotoquiz()">
                 <i class="fa-solid fa-network-wired"></i>
                 <h3>Networking Protocols</h3>
-                <p>Explore the world of networking with quizzes on HTTP, DNS, ports, ISPs, and browsers. Enhance your understanding of how the internet connects us all.</p>
+                <p>Explore the world of networking with quizzes on HTTP, DNS, ports, ISPs, and browsers. Enhance your
+                    understanding of how the internet connects us all.</p>
             </div>
 
             <div class="model" onclick="gotomodelb()">
                 <i class="fa-solid fa-futbol"></i>
                 <h3>Football Master</h3>
-                <p>Test your knowledge of the English Premier League, from legendary players to iconic matches and unforgettable moments.</p>
+                <p>Test your knowledge of the English Premier League, from legendary players to iconic matches and
+                    unforgettable moments.</p>
             </div>
         </section>
     </main>
-    
+
     <script src="../js/home.js"></script>
 </body>
+
 </html>
