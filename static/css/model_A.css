@@ -26,29 +26,29 @@
  */
 :root {
     /* Color Palette */
-    --primary: #7000FF;
-    --primary-dark: #5B00CC;
-    --primary-light: #9B4DFF;
-    --primary-rgb: 112, 0, 255;
-    --secondary: #FF2D55;
-    --accent: #00F7FF;
-    --accent-secondary: #0096FF;
-    --accent-rgb: 0, 150, 255;
+    --primary: #3F739A;
+    --primary-dark: #002141;
+    --primary-light: #8DC4FF;
+    --primary-rgb: 63, 115, 154;
+    --secondary: #001528;
+    --accent: #CFE7FF;
+    --accent-secondary: #8DC4FF;
+    --accent-rgb: 141, 196, 255;
     
     /* Background and Text Colors */
-    --bg-light: #ECEFF4;
-    --bg-dark: #151C29;
-    --text-light: #2E3440;
-    --text-dark: #E5E9F0;
+    --bg-light: #CFE7FF;
+    --bg-dark: #001528;
+    --text-light: #001528;
+    --text-dark: #CFE7FF;
     
     /* Shadow Values for Neomorphic Design */
-    --soft-shadow-light: rgba(166, 177, 199, 0.5);
+    --soft-shadow-light: rgba(63, 115, 154, 0.3);
     --hard-shadow-light: rgba(255, 255, 255, 0.8);
     --soft-shadow-dark: rgba(0, 0, 0, 0.3);
-    --hard-shadow-dark: rgba(40, 45, 60, 0.5);
+    --hard-shadow-dark: rgba(0, 33, 65, 0.5);
     
     /* Feedback Colors */
-    --success: #30E849;
+    --success: #8DC4FF;
     --error: #FF3B5C;
     --warning: #FFCF26;
     
@@ -119,18 +119,18 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(0, 247, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 50% 80%, rgba(255, 45, 85, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 15% 50%, rgba(63, 115, 154, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(207, 231, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(141, 196, 255, 0.15) 0%, transparent 40%);
     z-index: -1;
 }
 
 /* Darker gradients for dark mode */
 body.dark-mode::before {
     background: 
-        radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(0, 247, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 50% 80%, rgba(255, 45, 85, 0.15) 0%, transparent 40%);
+        radial-gradient(circle at 15% 50%, rgba(63, 115, 154, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(207, 231, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(141, 196, 255, 0.15) 0%, transparent 40%);
 }
 
 /**
@@ -204,7 +204,7 @@ h1, h2, h3 {
 #welcome-screen h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    background: linear-gradient(to right, var(--primary), var(--accent-secondary));
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -408,7 +408,7 @@ h1, h2, h3 {
     margin: 0 auto;
     font-size: 1.2rem;
     padding: 20px 50px;
-    background-image: linear-gradient(135deg, var(--primary), var(--accent-secondary), var(--primary));
+    background-image: linear-gradient(135deg, var(--primary), var(--primary-light), var(--primary));
     background-size: 300% 100%;
     animation: gradientShift 3s infinite alternate, floatPulse 3s infinite alternate, fadeInUp 1s 0.6s cubic-bezier(0.215, 0.610, 0.355, 1) backwards;
     letter-spacing: 2px;
@@ -639,7 +639,7 @@ h1, h2, h3 {
 
 #progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary), var(--accent-secondary));
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
     border-radius: var(--radius-round);
     width: 5%;
     transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -860,7 +860,7 @@ h1, h2, h3 {
     font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 35px;
-    background: linear-gradient(to right, var(--primary), var(--accent-secondary));
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -891,7 +891,7 @@ h1, h2, h3 {
 #score-display {
     font-size: 4rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -910,9 +910,9 @@ h1, h2, h3 {
 .score-circle::after {
     content: '★';
     position: absolute;
-    color: var(--accent);
+    color: var(--primary-light);
     animation: scoreStar 3s infinite alternate ease-in-out;
-    text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+    text-shadow: 0 0 10px rgba(141, 196, 255, 0.5);
 }
 
 .score-circle::before {
@@ -1027,7 +1027,7 @@ h1, h2, h3 {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    background: linear-gradient(135deg, var(--accent), var(--primary-light));
     border-radius: 50%;
     transition: all 0.4s;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -1083,12 +1083,15 @@ input:checked + .slider .dark-icon {
     visibility: hidden;
     transform: translateY(15px);
     transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+    background-image: linear-gradient(135deg, var(--primary), var(--primary-dark), var(--primary));
+    background-size: 200% 100%;
 }
 
 .control-btn.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    animation: buttonAppear 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Responsive styles */
@@ -1195,11 +1198,10 @@ input:checked + .slider .dark-icon {
     font-size: 2.5rem;
     margin-bottom: 30px;
     text-align: center;
-    background: linear-gradient(to right, var(--primary), var(--accent-secondary));
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeInDown 0.7s cubic-bezier(0.215, 0.610, 0.355, 1) backwards;
 }
 
 #review-container {

@@ -436,13 +436,8 @@ body.light-mode .answer-input::placeholder {
     color: rgba(0, 33, 65, 0.4);
 }
 
-body.light-mode .answer-input{
-    cursor: text;
-}
-
 body.light-mode .answer-input:focus {
     background: rgba(63, 115, 154, 0.7);
-    cursor: text; 
 }
 
 body.light-mode .btn {

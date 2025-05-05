@@ -16,6 +16,6 @@ function gotomodeld(){
 function gotomodelc(){
     window.location.href = "model_C.html";
 }
-function gotoquiz(){
-    window.location.href = "Quiz.html";
+function gotomodela(){
+    window.location.href = "model_A.html";
 }
