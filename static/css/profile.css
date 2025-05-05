@@ -22,7 +22,6 @@ body {
     width: 90%;
     max-width: 800px;
     border-radius: 20px;
-    box-shadow: black;
     padding: 30px;
     color: #001528;
     margin-bottom: 40px;
@@ -43,8 +42,8 @@ body {
     width: 130px;       /* 7agm el frame */
     height: 130px;      /* 7agm el frame */
     border-radius: 50%;
-    border-style: ridge;
-    border-color: black;
+    border-style:double ;
+    border-color: #3F739A;
     border-width: 10px;
     object-fit: cover;
     background-color: #002141;
