@@ -26,6 +26,7 @@ avatarInput.addEventListener('change', handleAvatarUpload);
 
 function handleLogin(e) {
     e.preventDefault();
+    localStorage.removeItem('curentUser');
     const email = signInForm.email.value;
     const password = signInForm.password.value;
     const signInBtn = document.getElementById('signInButton');
@@ -35,8 +36,9 @@ function handleLogin(e) {
     
     setTimeout(() => {
         const user = users.find(u => u.email === email && u.password === password);
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        
         if (user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
             showToast(`Welcome back, ${user.username}!`, 'success');
             window.location.href = './home.html';
         } else {
@@ -50,6 +52,7 @@ function handleLogin(e) {
 
 function handleSignUp(e) {
     e.preventDefault();
+    localStorage.removeItem('curentUser');
     const username = signUpForm.username.value;
     const email = signUpForm.email.value;
     const password = signUpForm.password.value;
@@ -57,7 +60,7 @@ function handleSignUp(e) {
     
     signUpBtn.disabled = true;
     signUpBtn.textContent = 'Loading...';
-    
+
     setTimeout(() => {
         if (users.some(u => u.email === email)) {
             showToast('Email already registered', 'error');
@@ -70,17 +73,18 @@ function handleSignUp(e) {
                 id: Date.now().toString(),
                 blocked: []
             };
-            
+
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
-            
+
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
             showToast('Account created successfully!', 'success');
             container.classList.remove('right-panel-active');
             signInForm.email.value = email;
             signInForm.password.value = password;
             window.location.href = './home.html';
         }
-        
+
         signUpBtn.disabled = false;
         signUpBtn.textContent = 'Sign Up';
     }, 1000);
@@ -89,7 +93,7 @@ function handleSignUp(e) {
 function handleDemoLogin() {
     signInForm.email.value = 'demo@example.com';
     signInForm.password.value = 'password';
-    handleLogin({ preventDefault: () => {} });
+    handleLogin({ preventDefault: () => { } });
 }
 
 function handleDemoSignUp() {
@@ -103,7 +107,7 @@ function handleAvatarUpload(e) {
     const file = e.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
             avatarPreview.src = event.target.result;
         };
         reader.readAsDataURL(file);
@@ -111,10 +115,10 @@ function handleAvatarUpload(e) {
 }
 
 function showToast(message, type) {
-    const background = type === 'success' 
+    const background = type === 'success'
         ? 'linear-gradient(to right, #00b09b, #96c93d)'
         : 'linear-gradient(to right, #ff5f6d, #ffc371)';
-    
+
     Toastify({
         text: message,
         className: type,

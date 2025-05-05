@@ -1,31 +1,39 @@
 // Profile page functionality
+const users = JSON.parse(localStorage.getItem('currentUser')) || [];
+//console.log(users);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('UserName').textContent = users.username;
+document.getElementById('UserEmail').textContent = users.email;
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
     // Elements
     const editProfileBtn = document.querySelector('.edit-profile-btn');
     const userNameElement = document.querySelector('.user-name');
     let isEditing = false; // change value   
-    
+
     // Edit Profile button functionality
     if (editProfileBtn) {
-        editProfileBtn.addEventListener('click', function() {
+        editProfileBtn.addEventListener('click', function () {
             //check error
             if (isEditing) {
                 showToast('please click : save name', 'error');
                 return;
             }
             isEditing = true;
-            
+
             // Get current username
-            const currentUsername = userNameElement.textContent;
-            
+            const currentUsername = users.email;
+            console.log(currentUsername);
+
             // Create edit mode elements
             const editContainer = document.createElement('div');
             editContainer.className = 'edit-username-container';
             editContainer.style.display = 'flex';
             editContainer.style.alignItems = 'center';
             editContainer.style.gap = '10px';
-            
+
             // Input field
             const inputField = document.createElement('input');
             inputField.type = 'text';
@@ -37,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             inputField.style.background = '#CFE7FF';
             inputField.style.fontWeight = 'bold';
             inputField.style.fontSize = '18px';
-            
+
             // Save button
             const saveBtn = document.createElement('button');
             saveBtn.textContent = 'Save';
@@ -49,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             saveBtn.style.padding = '8px 15px';
             saveBtn.style.cursor = 'pointer';
             saveBtn.style.fontWeight = 'bold';
-            
+
             // Cancel button
             const cancelBtn = document.createElement('button');
             cancelBtn.textContent = 'Cancel';
@@ -60,25 +68,25 @@ document.addEventListener('DOMContentLoaded', function() {
             cancelBtn.style.borderRadius = '20px';
             cancelBtn.style.padding = '8px 15px';
             cancelBtn.style.cursor = 'pointer';
-            
+
             // Add elements to container
             editContainer.appendChild(inputField);
             editContainer.appendChild(saveBtn);
             editContainer.appendChild(cancelBtn);
-            
+
             // Replace username element with edit container
             userNameElement.style.display = 'none';
             userNameElement.parentNode.insertBefore(editContainer, userNameElement.nextSibling);
-            
+
             // Focus on input
             inputField.focus();
-            
+
             // Save button click handler
-            saveBtn.addEventListener('click', function() {
+            saveBtn.addEventListener('click', function () {
                 const newUsername = inputField.value.trim();
                 if (newUsername) {
                     userNameElement.textContent = newUsername;
-                    
+
                     // Show success message
                     showToast('Username updated successfully!', 'success');
                 } else {
@@ -86,25 +94,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     showToast('Username cannot be empty!', 'error');
                     return;
                 }
-                
+
                 // Remove edit container and show username
                 editContainer.remove();
                 userNameElement.style.display = 'block';
                 //check
                 isEditing = false;
             });
-            
+
             // Cancel button click handler
-            cancelBtn.addEventListener('click', function() {
+            cancelBtn.addEventListener('click', function () {
                 // Remove edit container and show username with no changes
                 editContainer.remove();
                 userNameElement.style.display = 'block';
                 // check
                 isEditing = false;
             });
-            
+
             // Handle Enter key press
-            inputField.addEventListener('keyup', function(e) {
+            inputField.addEventListener('keyup', function (e) {
                 if (e.key === 'Enter') {
                     saveBtn.click();
                 } else if (e.key === 'Escape') {
@@ -113,12 +121,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
+
     // Function to display toast notifications
     function showToast(message, type = 'info') {
         // Create toast container if it doesn't exist
         let toastContainer = document.querySelector('.toast-container');
-        
+
         if (!toastContainer) {
             toastContainer = document.createElement('div');
             toastContainer.className = 'toast-container';
@@ -128,12 +136,12 @@ document.addEventListener('DOMContentLoaded', function() {
             toastContainer.style.zIndex = '1000';
             document.body.appendChild(toastContainer);
         }
-        
+
         // Create toast
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.textContent = message;
-        
+
         // Style the toast based on type
         toast.style.padding = '10px 20px';
         toast.style.marginBottom = '10px';
@@ -142,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toast.style.fontWeight = 'bold';
         toast.style.animation = 'fadeIn 0.3s, fadeOut 0.3s 2.7s';
         toast.style.minWidth = '200px';
-        
+
         if (type === 'success') {
             toast.style.backgroundColor = '#002141';
             toast.style.color = '#CFE7FF';
@@ -150,10 +158,10 @@ document.addEventListener('DOMContentLoaded', function() {
             toast.style.backgroundColor = '#9e1b1b';
             toast.style.color = 'white';
         }
-        
+
         // Add the toast to the container
         toastContainer.appendChild(toast);
-        
+
         // Remove the toast after 3 seconds
         setTimeout(() => {
             toast.style.opacity = '0';
@@ -162,62 +170,62 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }, 3000);
     }
-    
+
     // Avatar modal functionality
     function openAvatarModal() {
         document.getElementById('avatarModal').style.display = 'flex';
     }
-    
+
     function closeAvatarModal() {
         document.getElementById('avatarModal').style.display = 'none';
     }
-    
+
     function saveAvatar() {
         const selectedAvatar = document.querySelector('.avatar-option.selected i');
         const currentAvatar = document.querySelector('.current-avatar i');
-        
+
         if (selectedAvatar && currentAvatar) {
             currentAvatar.className = selectedAvatar.className;
         }
-        
+
         closeAvatarModal();
     }
-    
+
     // Add event listeners to avatar options
     const avatarOptions = document.querySelectorAll('.avatar-option');
-    
+
     avatarOptions.forEach(option => {
-        option.addEventListener('click', function() {
+        option.addEventListener('click', function () {
             // Remove selected class from all options
             avatarOptions.forEach(opt => opt.classList.remove('selected'));
-            
+
             // Add selected class to clicked option
             this.classList.add('selected');
         });
     });
-    
+
     // Close modal if clicked outside content
     const avatarModal = document.getElementById('avatarModal');
     if (avatarModal) {
-        avatarModal.addEventListener('click', function(e) {
+        avatarModal.addEventListener('click', function (e) {
             if (e.target === this) {
                 closeAvatarModal();
             }
         });
     }
-    
+
     // Add click handlers for avatar selector
     const avatarSelector = document.querySelector('.avatar-selector');
     if (avatarSelector) {
         avatarSelector.addEventListener('click', openAvatarModal);
     }
-    
+
     // Add click handlers for modal buttons
     const saveAvatarBtn = document.querySelector('.save-btn');
     if (saveAvatarBtn) {
         saveAvatarBtn.addEventListener('click', saveAvatar);
     }
-    
+
     const cancelAvatarBtn = document.querySelector('.cancel-btn');
     if (cancelAvatarBtn) {
         cancelAvatarBtn.addEventListener('click', closeAvatarModal);
