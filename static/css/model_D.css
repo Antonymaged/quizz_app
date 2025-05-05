@@ -21,6 +21,11 @@ body {
     border: 2px solid #3F739A;
     animation: fadeIn 0.8s ease;
     transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow-y: auto;
+    max-height: 80vh;
+    scrollbar-width: none; 
+    
 }
 
 .quiz-content {
